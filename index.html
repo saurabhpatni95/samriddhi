@@ -1,75 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Samriddhi</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="assets/css/styles.css" rel="stylesheet" />
-        <script src="assets/js/products.js"></script>
-    </head>
-    <body>
-        <!-- Navigation-->
-        <div id="navbar-placeholder"></div>
-        <script src="assets/js/nav.js"></script>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Samriddhi - Trendy Ethnic Wear</title>
 
-        <!-- Header-->
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Shop in style</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">With Samriddhi</p>
-                </div>
-            </div>
-        </header>
-        <!-- Section-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <h2 class="text-center mb-4">Trending Now</h2>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3
-                    row-cols-xl-4 justify-content-center"
-                     id="trendingContainer">
-                </div>
-            </div>
-        </section>
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <h2 class="text-center mb-4">Latest Sarees</h2>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3
-            row-cols-xl-4 justify-content-center"
-                     id="sareesContainerHome">
-                </div>
-            </div>
-        </section>
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <h2 class="text-center mb-4">New Suits Collection</h2>
+    <!-- Core theme CSS -->
+    <link href="assets/css/styles.css" rel="stylesheet" />
 
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3
-            row-cols-xl-4 justify-content-center"
-                     id="suitsContainerHome">
-                </div>
-            </div>
-        </section>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright © Samriddhi 2025</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="assets/js/scripts.js"></script>
-    </body>
-</html>
+    <!-- Custom Animation CSS -->
+    <style>
+        /* Section Heading Animation */
+        h2 {
+            font-weight: bold;
+            animation: fadeDown 1s ease-in-out;
+        }
+
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Hover Animation */
+        .card {
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Image Zoom Effect */
+        .card-img-top {
+            transition: transform 0.6s ease;
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.07);
+        }
+
+        /* Hero Section Animation */
+        header h1 {
+            animation: fadeUp 1.3s ease-in-out;
+        }
+
+        header p {
+            animation: fadeUp 1.7s ease-in-out;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <script src="assets/js/products.js"></script>
+</head>
+
+<body>
+<!-- Navigation -->
+<div id="navbar-placeholder"></div>
+<script src="assets/js/nav.js"></script>
+
+<!-- Header -->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5 text-center text-white">
+        <h1 class="display-4 fw-bolder">Discover Your Elegance</h1>
+        <p class="lead fw-normal text-white-50 mb-0">Premium Sarees • Stylish Suits • Latest Trends</p>
+    </div>
+</header>
+
+<!-- Trending Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container px-4 px-lg-5 mt-5">
+        <h2 class="text-center mb-4">🔥 Trending Now</h2>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+             id="trendingContainer">
+        </div>
+    </div>
+</section>
+
+<!-- Sarees Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container px-4 px-lg-5 mt-5">
+        <h2 class="text-center mb-4">🌸 Latest Sarees</h2>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+             id="sareesContainerHome">
+        </div>
+    </div>
+</section>
+
+<!-- Suits Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container px-4 px-lg-5 mt-5">
+        <h2 class="text-center mb-4">✨ New Suits Collection</h2>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+             id="suitsContainerHome">
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright © Samriddhi 2025</p>
+    </div>
+</footer>
+
+<!-- Bootstrap Core JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS Animation JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1100, once: true });
+</script>
+
+<!-- Load Product Data -->
 <script>
     function loadProducts(category, containerId, limit = null) {
         fetch('data/products.json')
@@ -77,37 +136,36 @@
             .then(data => {
                 let items = data[category];
 
-                if (limit) {
-                    items = items.slice(0, limit);   // <-- Only first 4 items
-                }
+                if (limit) items = items.slice(0, limit);
 
                 let html = '';
                 items.forEach(item => {
                     html += `
-                    <div class="col mb-5">
+                    <div class="col mb-5" data-aos="zoom-in">
                         <div class="card h-100">
                             <img class="card-img-top" src="${item.image}" alt="">
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <h5 class="fw-bolder">${item.name}</h5>
-                                    ₹${item.price}
-                                </div>
+                            <div class="card-body p-4 text-center">
+                                <h5 class="fw-bolder">${item.name}</h5>
+                                ₹${item.price}
                             </div>
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <a class="btn btn-outline-dark mt-auto" href="#">View</a>
-                                </div>
+                            <div class="card-footer p-3 pt-3 bg-transparent text-center">
+                                <a class="btn btn-outline-dark mt-auto pt-2"
+                                   href="product-details.html?id=${item.id}">
+                                   View
+                                </a>
                             </div>
                         </div>
-                    </div>
-                    `;
+                    </div>`;
                 });
+
                 document.getElementById(containerId).innerHTML = html;
             });
     }
 
-    // LOAD ONLY FOUR ITEMS ON HOME PAGE
     loadProducts('trending', 'trendingContainer', 4);
     loadProducts('sarees', 'sareesContainerHome', 4);
     loadProducts('suits', 'suitsContainerHome', 4);
 </script>
+
+</body>
+</html>

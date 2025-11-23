@@ -1,20 +1,94 @@
 {
   "sarees": [
-    { "name": "Red Banarasi Saree", "price": 1499, "image": "assets/images/banarasi.jpg" },
-    { "name": "Blue Silk Saree", "price": 1799, "image": "assets/images/saree2.jpg" },
-    { "name": "Kanjivaram Saree", "price": 2599, "image": "assets/images/kanjivaram.jpg" },
-    { "name": "Designer Saree", "price": 1999, "image": "assets/images/saree4.jpg" }
+    {
+      "id": "saree-1",
+      "name": "Red Banarasi Saree",
+      "price": 1499,
+      "image": "assets/images/banarasi.jpg",
+      "description": "Elegant Red Banarasi saree with rich gold zari work."
+    },
+    {
+      "id": "saree-2",
+      "name": "Blue Silk Saree",
+      "price": 1799,
+      "image": "assets/images/saree2.jpg",
+      "description": "Premium blue silk saree with soft texture and classic finish."
+    },
+    {
+      "id": "saree-3",
+      "name": "Kanjivaram Saree",
+      "price": 2599,
+      "image": "assets/images/kanjivaram.jpg",
+      "description": "Traditional Kanjivaram saree known for its bold color and durability."
+    },
+    {
+      "id": "saree-4",
+      "name": "Designer Saree",
+      "price": 1999,
+      "image": "assets/images/saree4.jpg",
+      "description": "Modern designer saree with contemporary embroidery."
+    }
   ],
+
   "suits": [
-    { "name": "Pink Chanderi Suit", "price": 1299, "image": "assets/images/.jpg" },
-    { "name": "Green Anarkali Suit", "price": 2499, "image": "assets/images/anarkali.jpg" },
-    { "name": "Cotton Printed Suit", "price": 999, "image": "assets/images/suit3.jpg" },
-    { "name": "Party Wear Suit", "price": 1899, "image": "assets/images/suit4.jpg" }
+    {
+      "id": "suit-1",
+      "name": "Pink Chanderi Suit",
+      "price": 1299,
+      "image": "assets/images/suit1.jpg",
+      "description": "Lightweight pink chanderi suit perfect for festive wear."
+    },
+    {
+      "id": "suit-2",
+      "name": "Green Anarkali Suit",
+      "price": 2499,
+      "image": "assets/images/anarkali.jpg",
+      "description": "Flowy green Anarkali suit with intricate detailing."
+    },
+    {
+      "id": "suit-3",
+      "name": "Cotton Printed Suit",
+      "price": 999,
+      "image": "assets/images/suit3.jpg",
+      "description": "Soft cotton suit with stylish printed patterns."
+    },
+    {
+      "id": "suit-4",
+      "name": "Party Wear Suit",
+      "price": 1899,
+      "image": "assets/images/suit4.jpg",
+      "description": "Premium party wear suit designed for elegance."
+    }
   ],
+
   "trending": [
-    { "name": "Trending Saree", "price": 1999, "image": "assets/images/kanjivaram.jpg" },
-    { "name": "Trending Suit", "price": 1599, "image": "assets/images/trend2.jpg" },
-    { "name": "Designer Kurti", "price": 899, "image": "assets/images/anarkali.jpg" },
-    { "name": "Luxury Saree", "price": 2999, "image": "assets/images/trend4.jpg" }
+    {
+      "id": "trend-1",
+      "name": "Trending Saree",
+      "price": 1999,
+      "image": "assets/images/kanjivaram.jpg",
+      "description": "Highly-demanded trending saree, loved by our customers."
+    },
+    {
+      "id": "trend-2",
+      "name": "Trending Suit",
+      "price": 1599,
+      "image": "assets/images/trend2.jpg",
+      "description": "A stylish trending suit ideal for daily and festive wear."
+    },
+    {
+      "id": "trend-3",
+      "name": "Designer Kurti",
+      "price": 899,
+      "image": "assets/images/anarkali.jpg",
+      "description": "Comfortable and fashionable designer kurti for any occasion."
+    },
+    {
+      "id": "trend-4",
+      "name": "Luxury Saree",
+      "price": 2999,
+      "image": "assets/images/trend4.jpg",
+      "description": "Premium luxury saree with heavy work and superior finish."
+    }
   ]
 }
