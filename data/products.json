@@ -1,0 +1,20 @@
+{
+  "sarees": [
+    { "name": "Red Banarasi Saree", "price": 1499, "image": "assets/images/banarasi.jpg" },
+    { "name": "Blue Silk Saree", "price": 1799, "image": "assets/images/saree2.jpg" },
+    { "name": "Kanjivaram Saree", "price": 2599, "image": "assets/images/kanjivaram.jpg" },
+    { "name": "Designer Saree", "price": 1999, "image": "assets/images/saree4.jpg" }
+  ],
+  "suits": [
+    { "name": "Pink Chanderi Suit", "price": 1299, "image": "assets/images/.jpg" },
+    { "name": "Green Anarkali Suit", "price": 2499, "image": "assets/images/anarkali.jpg" },
+    { "name": "Cotton Printed Suit", "price": 999, "image": "assets/images/suit3.jpg" },
+    { "name": "Party Wear Suit", "price": 1899, "image": "assets/images/suit4.jpg" }
+  ],
+  "trending": [
+    { "name": "Trending Saree", "price": 1999, "image": "assets/images/kanjivaram.jpg" },
+    { "name": "Trending Suit", "price": 1599, "image": "assets/images/trend2.jpg" },
+    { "name": "Designer Kurti", "price": 899, "image": "assets/images/anarkali.jpg" },
+    { "name": "Luxury Saree", "price": 2999, "image": "assets/images/trend4.jpg" }
+  ]
+}
