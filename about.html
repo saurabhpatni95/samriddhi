@@ -1,47 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About Us - Samriddhi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .slide-in { animation: slideIn 1.2s ease; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(-40px);} to { opacity: 1; transform: translateX(0);} }
+        .fade-in { animation: fadeIn 1.2s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<script>
+    // DARK MODE TOGGLE
+    const darkToggle = document.getElementById("darkToggle");
 
-<!-- Navbar -->
+    if (localStorage.getItem("dark-mode") === "enabled") {
+        document.body.classList.add("dark-mode");
+    }
+
+    darkToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("dark-mode", "enabled");
+        } else {
+            localStorage.removeItem("dark-mode");
+        }
+    });
+
+    // WISHLIST COUNTER
+    function updateWishlistCount() {
+        const items = JSON.parse(localStorage.getItem("wishlist") || "[]");
+        document.getElementById("wishlistCount").textContent = items.length;
+    }
+
+    updateWishlistCount();
+</script>
+
 <body>
-<!-- Navigation-->
 <div id="navbar-placeholder"></div>
 <script src="assets/js/nav.js"></script>
 
-<!-- Header-->
-<header class="bg-dark py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">About Samriddhi</h1>
-        </div>
+<script src="assets/js/wishlist.js"></script>
+
+<header class="bg-dark py-5 fade-in">
+    <div class="container text-center text-white">
+        <h1 class="fw-bold">About Samriddhi</h1>
     </div>
 </header>
 
-<div class="container my-5">
+
+<section class="container my-5 fade-in">
+    <h2 class="text-center mb-4 slide-in">Who We Are</h2>
+    <p class="lead text-center">
+        Samriddhi brings premium sarees, elegant suits and traditional ethnic wear with a modern touch.
+    </p>
+</section>
+
+
+<div class="container fade-in">
     <p>
-        Samriddhi is a boutique clothing brand specialising in premium Sarees and Suits.
-        Our mission is to bring high-quality ethnic wear that blends tradition with modern elegance.
+        Samriddhi is a boutique clothing brand specialising in premium sarees and suits.
+        Every item is crafted with the finest materials and sourced from skilled artisans.
     </p>
     <p>
-        Every piece is carefully curated from trusted artisans to ensure authenticity, comfort, and style.
-        We continuously update our collections with new and trending designs.
+        Our goal is to bring you fashion that blends tradition, modern elegance, and unmatched quality.
     </p>
+
 
     <h3 class="mt-4">Why Choose Us?</h3>
     <ul>
-        <li>Authentic ethnic wear</li>
-        <li>Exclusive premium fabric collections</li>
-        <li>Affordable pricing</li>
-        <li>New arrivals every week</li>
+        <li>Premium ethnic wear</li>
+        <li>Exclusive fabric collections</li>
+        <li>Affordable luxury</li>
+        <li>Updated trending designs weekly</li>
     </ul>
 </div>
+
 
 <footer class="bg-light py-3 text-center mt-5">
     © 2025 Samriddhi | All Rights Reserved.

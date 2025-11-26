@@ -5,53 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact Us - Samriddhi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .fade-in { animation: fadeIn 1.2s ease; }
+        @keyframes fadeIn { from {opacity:0; transform:scale(0.95);} to {opacity:1; transform:scale(1);} }
+        .btn-animated { transition: 0.3s; }
+        .btn-animated:hover { transform: translateY(-3px); }
+    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<script>
+    // DARK MODE TOGGLE
+    const darkToggle = document.getElementById("darkToggle");
 
-<!-- Navigation-->
+    if (localStorage.getItem("dark-mode") === "enabled") {
+        document.body.classList.add("dark-mode");
+    }
+
+    darkToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("dark-mode", "enabled");
+        } else {
+            localStorage.removeItem("dark-mode");
+        }
+    });
+
+    // WISHLIST COUNTER
+    function updateWishlistCount() {
+        const items = JSON.parse(localStorage.getItem("wishlist") || "[]");
+        document.getElementById("wishlistCount").textContent = items.length;
+    }
+
+    updateWishlistCount();
+</script>
+
+<body>
 <div id="navbar-placeholder"></div>
 <script src="assets/js/nav.js"></script>
 
-<!-- Header-->
-<header class="bg-dark py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Contact Us</h1>
-        </div>
+<script src="assets/js/wishlist.js"></script>
+
+<header class="bg-dark py-5 fade-in">
+    <div class="container text-center text-white">
+        <h1 class="fw-bold">Contact Us</h1>
     </div>
 </header>
 
 
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
+<section class="container fade-in my-5">
+    <h2 class="text-center">We'd Love to Hear From You</h2>
+    <form class="mt-4 mx-auto" style="max-width: 480px;">
+        <input class="form-control mb-3" placeholder="Your Name" />
+        <input class="form-control mb-3" placeholder="Email" />
+        <textarea class="form-control mb-3" placeholder="Message" rows="4"></textarea>
+        <button class="btn btn-dark w-100 btn-animated">Send Message</button>
+    </form>
+</section>
 
-            <form>
-                <div class="mb-3">
-                    <label class="form-label">Your Name</label>
-                    <input class="form-control" type="text" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Email Address</label>
-                    <input class="form-control" type="email" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Message</label>
-                    <textarea class="form-control" required rows="4"></textarea>
-                </div>
-
-                <button class="btn btn-primary w-100">Send Message</button>
-            </form>
-
-            <p class="mt-4 text-center">
-                Or WhatsApp us: <strong>+91 9XXXXXXXXX</strong>
-            </p>
-        </div>
-    </div>
-</div>
 
 <footer class="bg-light py-3 text-center mt-5">
     © 2025 Samriddhi | All Rights Reserved.

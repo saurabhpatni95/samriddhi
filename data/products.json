@@ -1,94 +1,106 @@
 {
   "sarees": [
     {
-      "id": "saree-1",
+      "id": 1,
+      "type": "sarees",
       "name": "Red Banarasi Saree",
       "price": 1499,
       "image": "assets/images/banarasi.jpg",
-      "description": "Elegant Red Banarasi saree with rich gold zari work."
+      "desc": "Royal Banarasi silk with golden zari work."
     },
     {
-      "id": "saree-2",
+      "id": 2,
+      "type": "sarees",
       "name": "Blue Silk Saree",
       "price": 1799,
       "image": "assets/images/saree2.jpg",
-      "description": "Premium blue silk saree with soft texture and classic finish."
+      "desc": "Smooth silk drape with elegant tone."
     },
     {
-      "id": "saree-3",
+      "id": 3,
+      "type": "sarees",
       "name": "Kanjivaram Saree",
       "price": 2599,
       "image": "assets/images/kanjivaram.jpg",
-      "description": "Traditional Kanjivaram saree known for its bold color and durability."
+      "desc": "Rich Kanjivaram texture with heritage motif."
     },
     {
-      "id": "saree-4",
+      "id": 4,
+      "type": "sarees",
       "name": "Designer Saree",
       "price": 1999,
       "image": "assets/images/saree4.jpg",
-      "description": "Modern designer saree with contemporary embroidery."
+      "desc": "Trendy designer saree for parties."
     }
   ],
 
   "suits": [
     {
-      "id": "suit-1",
+      "id": 1,
+      "type": "suits",
       "name": "Pink Chanderi Suit",
       "price": 1299,
       "image": "assets/images/suit1.jpg",
-      "description": "Lightweight pink chanderi suit perfect for festive wear."
+      "desc": "Light Chanderi suit with intricate design."
     },
     {
-      "id": "suit-2",
+      "id": 2,
+      "type": "suits",
       "name": "Green Anarkali Suit",
       "price": 2499,
       "image": "assets/images/anarkali.jpg",
-      "description": "Flowy green Anarkali suit with intricate detailing."
+      "desc": "Flowing Anarkali design with flare."
     },
     {
-      "id": "suit-3",
+      "id": 3,
+      "type": "suits",
       "name": "Cotton Printed Suit",
       "price": 999,
       "image": "assets/images/suit3.jpg",
-      "description": "Soft cotton suit with stylish printed patterns."
+      "desc": "Comfort cotton with fresh prints."
     },
     {
-      "id": "suit-4",
+      "id": 4,
+      "type": "suits",
       "name": "Party Wear Suit",
       "price": 1899,
       "image": "assets/images/suit4.jpg",
-      "description": "Premium party wear suit designed for elegance."
+      "desc": "Premium party-wear style."
     }
   ],
 
   "trending": [
     {
-      "id": "trend-1",
-      "name": "Trending Saree",
-      "price": 1999,
+      "id": 3,
+      "type": "sarees",
+      "name": "Kanjivaram Saree",
+      "price": 2999,
       "image": "assets/images/kanjivaram.jpg",
-      "description": "Highly-demanded trending saree, loved by our customers."
+      "desc": "Rich Kanjivaram texture with heritage motif."
     },
     {
-      "id": "trend-2",
-      "name": "Trending Suit",
+      "id": 2,
+      "type": "suits",
+      "name": "Anarkali Suit",
       "price": 1599,
-      "image": "assets/images/trend2.jpg",
-      "description": "A stylish trending suit ideal for daily and festive wear."
+      "image": "assets/images/anarkali.jpg",
+      "desc": "Flowing Anarkali design with flare."
     },
     {
-      "id": "trend-3",
+      "id": 4,
+      "type": "suits",
       "name": "Designer Kurti",
       "price": 899,
-      "image": "assets/images/anarkali.jpg",
-      "description": "Comfortable and fashionable designer kurti for any occasion."
+      "image": "assets/images/suit4.jpg",
+      "desc": "Designer Kurti"
     },
     {
-      "id": "trend-4",
-      "name": "Luxury Saree",
-      "price": 2999,
-      "image": "assets/images/trend4.jpg",
-      "description": "Premium luxury saree with heavy work and superior finish."
+      "id": 1,
+      "type": "sarees",
+      "name": "Luxury Silk Saree",
+      "price": 3499,
+      "image": "assets/images/banarasi.jpg",
+      "desc": "Royal Banarasi silk with golden zari work."
     }
   ]
 }
