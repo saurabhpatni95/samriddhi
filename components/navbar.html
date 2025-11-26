@@ -1,137 +1,174 @@
 <style>
   /* ------------------------------------
-     GLOBAL NAVBAR STYLING (LIGHT MODE)
-  ------------------------------------ */
+   GLOBAL NAVBAR STYLING
+------------------------------------ */
 
-  .navbar {
-      backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.75) !important;
-      border-bottom: 1px solid rgba(200, 200, 200, 0.3);
-      transition: background 0.3s ease, color 0.3s ease;
-      z-index: 1000;
-  }
+.navbar {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.75) !important;
+    border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+    transition: background 0.3s ease, color 0.3s ease;
+    z-index: 1000;
+}
 
-  .navbar-brand {
-      font-size: 1.7rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-  }
+/* Brand */
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
 
-  .nav-link {
-      position: relative;
-      font-weight: 500;
-      margin-right: 10px;
-      color: #222 !important;
-      transition: 0.3s ease;
-  }
+/* Nav links */
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    margin-right: 8px;
+    color: #222 !important;
+    transition: 0.3s ease;
+}
 
-  /* Underline animation */
-  .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0%;
-      height: 2px;
-      background: #ff4081;
-      transition: 0.3s ease;
-  }
-  .nav-link:hover::after,
-  .nav-link.active::after {
-      width: 100%;
-  }
+/* Underline animation */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #ff4081;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
 
-  /* Search box animation */
-  .search-box {
-      position: relative;
-      width: 180px;
-      transition: 0.4s ease;
-      overflow: hidden;
-  }
-  .search-box input {
-      width: 100%;
-      padding: 6px 12px;
-      border-radius: 25px;
-      border: 1px solid #bbb;
-      background: #fff;
-      transition: 0.3s ease;
-  }
-  .search-box:focus-within {
-      width: 260px;
-  }
+/* Search box */
+.search-box {
+    position: relative;
+    width: 180px;
+    transition: width 0.4s ease;
+}
+.search-box input {
+    width: 100%;
+    padding: 6px 12px;
+    border-radius: 25px;
+    border: 1px solid #bbb;
+    background: #fff;
+    transition: 0.3s ease;
+}
+.search-box:focus-within {
+    width: 260px;
+}
 
-  /* Icon buttons */
-  .icon-btn {
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      margin-left: 18px;
-      cursor: pointer;
-      transition: 0.3s ease;
-      color: #333;
-  }
-  .icon-btn:hover {
-      transform: scale(1.1);
-  }
+/* Icons */
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    margin-left: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: #333;
+}
+.icon-btn:hover {
+    transform: scale(1.1);
+}
 
-  /* ------------------------------------
-     DARK MODE
-  ------------------------------------ */
+/* ------------------------------------
+   DARK MODE
+------------------------------------ */
 
-  body.dark-mode {
-      background-color: #121212;
-      color: #f1f1f1;
-  }
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+body.dark-mode .navbar {
+    background: rgba(30, 30, 30, 0.85) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .nav-link {
+    color: #eee !important;
+}
+body.dark-mode .navbar-brand {
+    color: #fff !important;
+}
+body.dark-mode .search-box input {
+    background-color: #2b2b2b;
+    border-color: #444;
+    color: #fff;
+}
+body.dark-mode .icon-btn {
+    color: #f1f1f1;
+}
+#darkToggle.rotated {
+    transform: rotate(180deg);
+}
 
-  /* Dark navbar */
-  body.dark-mode .navbar {
-      background: rgba(30, 30, 30, 0.85) !important;
-      border-bottom-color: rgba(255, 255, 255, 0.1);
-  }
+/* Toggle moon icon animation */
+#darkToggle {
+    transition: 0.3s ease;
+}
+#darkToggle.rotated {
+    transform: rotate(180deg);
+}
 
-  /* Dark text */
-  body.dark-mode .nav-link {
-      color: #eee !important;
-  }
+/* ------------------------------------
+   RESPONSIVE FIXES
+------------------------------------ */
 
-  body.dark-mode .navbar-brand {
-      color: #fff !important;
-  }
+/* Mobile: Collapse menu stacked, centered */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        padding: 12px 0;
+    }
 
-  /* Search bar dark */
-  body.dark-mode .search-box input {
-      background-color: #2b2b2b;
-      border-color: #444;
-      color: #fff;
-  }
+    .navbar-nav {
+        text-align: center;
+        margin-bottom: 15px;
+    }
 
-  /* Dark icons */
-  body.dark-mode .icon-btn {
-      color: #f1f1f1;
-  }
+    .search-box {
+        width: 100% !important;
+        margin: 10px 0;
+    }
 
-  /* Toggle moon icon animation */
-  #darkToggle {
-      transition: 0.3s ease;
-  }
-  #darkToggle.rotated {
-      transform: rotate(180deg);
-  }
+    .icon-btn {
+        font-size: 1.6rem;
+        margin-left: 10px;
+    }
+
+    #wishlistCount {
+        margin-left: 3px;
+    }
+}
+
+/* Extra small devices fix */
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+
+    .icon-btn {
+        font-size: 1.4rem;
+    }
+}
+
 </style>
 
 <nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container px-4 px-lg-5">
+  <div class="container px-3">
 
     <a class="navbar-brand" href="index.html">Samriddhi</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarContent">
+    <!-- Mobile Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Menu -->
     <div class="collapse navbar-collapse" id="navbarContent">
 
-      <!-- Left Menu -->
       <ul class="navbar-nav me-auto ms-lg-4 mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="sarees.html">Sarees</a></li>
         <li class="nav-item"><a class="nav-link" href="suits.html">Suits</a></li>
@@ -139,17 +176,17 @@
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
 
-      <!-- Search Bar -->
-      <div class="search-box me-3">
-        <input type="text" id="searchInput" placeholder="Search products..." />
+      <!-- Search (full width on mobile) -->
+      <div class="search-box me-lg-3">
+        <input type="text" id="searchInput" placeholder="Search products...">
       </div>
 
-      <!-- Dark Mode Button -->
+      <!-- Dark Mode -->
       <button id="darkToggle" class="icon-btn">🌙</button>
 
       <!-- Wishlist -->
       <button onclick="window.location.href='wishlist.html'" class="icon-btn">
-        ❤️ <span id="wishlistCount" style="font-size:0.9rem; font-weight:bold;"></span>
+        ❤️ <span id="wishlistCount" style="font-size:0.9rem;font-weight:bold;"></span>
       </button>
 
     </div>
@@ -157,11 +194,9 @@
 </nav>
 
 <script>
-  // DARK MODE TOGGLE
   document.addEventListener("DOMContentLoaded", () => {
       const toggleBtn = document.getElementById("darkToggle");
 
-      // Load saved mode
       if (localStorage.getItem("theme") === "dark") {
           document.body.classList.add("dark-mode");
           toggleBtn.classList.add("rotated");
