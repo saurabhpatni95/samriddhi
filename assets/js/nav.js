@@ -4,9 +4,17 @@ fetch("components/navbar.html")
   .then(data => {
       document.getElementById("navbar-placeholder").innerHTML = data;
 
-      // =====================================
-      // DARK MODE INITIALIZATION
-      // =====================================
+      // -----------------------------------------
+      // INIT BOOTSTRAP COLLAPSE (Required for mobile)
+      // -----------------------------------------
+      const collapseElementList = document.querySelectorAll('.collapse');
+      collapseElementList.forEach(el => {
+          new bootstrap.Collapse(el, { toggle: false });
+      });
+
+      // -----------------------------------------
+      // DARK MODE
+      // -----------------------------------------
       const darkToggle = document.getElementById("darkToggle");
 
       if (localStorage.getItem("theme") === "dark") {
@@ -29,9 +37,9 @@ fetch("components/navbar.html")
           }
       });
 
-      // =====================================
-      // GLOBAL WISHLIST BADGE UPDATE
-      // =====================================
+      // -----------------------------------------
+      // WISHLIST BADGE SYNC
+      // -----------------------------------------
       const updateWishlistCount = () => {
           const items = JSON.parse(localStorage.getItem("wishlist") || "[]");
           const badge = document.getElementById("wishlistCount");
@@ -39,20 +47,19 @@ fetch("components/navbar.html")
       };
       updateWishlistCount();
 
-      // =====================================
-      // 🔍 SEARCH FUNCTIONALITY (FIXED)
-      // =====================================
+      // -----------------------------------------
+      // SEARCH FUNCTIONALITY
+      // -----------------------------------------
       const searchInput = document.getElementById("searchInput");
 
       if (searchInput) {
           searchInput.addEventListener("keyup", async (e) => {
               let query = e.target.value.toLowerCase().trim();
-              if (query.length < 2) return; // avoid accidental single letter searches
+              if (query.length < 2) return;
 
               const res = await fetch("data/products.json");
               const data = await res.json();
 
-              // Combine all categories
               let allProducts = [
                   ...data.sarees,
                   ...data.suits,

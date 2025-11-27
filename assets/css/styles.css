@@ -1,15 +1,21 @@
 /* -------------------- NAVBAR -------------------- */
 .navbar {
-    position: fixed;       /* Fixed navbar */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1050;         /* Above content */
+    z-index: 1050;
     backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.95) !important;
-    border-bottom: 1px solid rgba(200, 200, 200, 0.3);
-    transition: background 0.3s ease, color 0.3s ease;
+    background: var(--navbar-bg);
+    border-bottom: 1px solid rgba(200, 200, 200, 0.25);
+    transition: background 0.35s ease, color 0.35s ease;
     padding: 0.6rem 1rem;
+}
+
+:root {
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --navbar-text: #222;
+    --navbar-icon: #333;
 }
 
 /* Add top padding to body to prevent content overlap */
@@ -22,6 +28,7 @@ body {
     font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: 1px;
+    color: var(--primary-color) !important;
 }
 
 /* Nav links */
@@ -31,6 +38,7 @@ body {
     margin-right: 8px;
     color: #222 !important;
     transition: 0.3s ease;
+    color: var(--navbar-text) !important;
 }
 
 /* Nav link underline animation */
@@ -76,9 +84,15 @@ body {
     cursor: pointer;
     transition: transform 0.3s ease;
     color: #333;
+    color: var(--navbar-icon) !important;
 }
 .icon-btn:hover {
     transform: scale(1.1);
+}
+
+/* Light Mode (Default Bootstrap Icon) */
+.navbar-toggler-icon {
+    filter: none;
 }
 
 /* -------------------- FOOTER -------------------- */
@@ -127,6 +141,47 @@ body {
     .icon-btn {
         font-size: 1.4rem;
     }
+}
+
+/* Mobile centered actions */
+.mobile-center-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 12px 0;
+}
+
+.mobile-center-actions .icon-btn {
+    position: relative;
+}
+
+/* Ensure desktop icon button is position relative */
+.d-lg-flex .icon-btn {
+    position: relative;
+}
+
+/* Wishlist badge */
+.wishlist-badge {
+    position: relative;
+    top: -10px;
+    right: -1px;
+    background: crimson;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1;
+}
+
+.center-buttons {
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically if needed */
+    gap: 15px;                /* Space between buttons */
+    padding: 10px 0;          /* Optional padding */
 }
 
 /* -------------------- HERO SECTION -------------------- */
@@ -285,6 +340,9 @@ body {
 body.dark-mode {
     background: #121212;
     color: white;
+    --navbar-bg: rgba(20, 20, 20, 0.8);
+    --navbar-text: #f5f5f5;
+    --navbar-icon: #fff;
 }
 
 body.dark-mode .card {
@@ -313,6 +371,14 @@ body.dark-mode .btn-outline-dark {
 body.dark-mode .btn-outline-dark:hover {
     background: white !important;
     color: black !important;
+}
+
+body.dark-mode .navbar-brand {
+    color: #ffffff !important;
+}
+
+body.dark-mode .navbar-toggler-icon {
+    filter: invert(1) brightness(200%);
 }
 
 /* -------------------- WISHLIST -------------------- */

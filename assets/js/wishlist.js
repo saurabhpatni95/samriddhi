@@ -1,6 +1,6 @@
 /* -------------------- TOGGLE WISHLIST -------------------- */
 function toggleWishlist(btn) {
-    const uniqueId = btn.dataset.uniqueid;   // type + id
+    const uniqueId = btn.dataset.uniqueid;
     const id = btn.dataset.id;
     const type = btn.dataset.type;
     const name = btn.dataset.name;
@@ -18,11 +18,8 @@ function toggleWishlist(btn) {
 
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
-    // Update all buttons and wishlist count immediately
     updateWishlistButtons();
     updateWishlistCount();
-
-    // Trigger global sync across other tabs/pages
     window.dispatchEvent(new Event("storage"));
 }
 
@@ -48,13 +45,15 @@ function updateWishlistButtons() {
 function updateWishlistCount() {
     const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
     const el = document.getElementById("wishlistCount");
+    const elMobile = document.getElementById("wishlistCountMobile");
     if (el) el.textContent = wishlist.length;
+    if (elMobile) elMobile.textContent = wishlist.length;
 }
 
 /* -------------------- LOAD WISHLIST PAGE -------------------- */
 function loadWishlist() {
     const container = document.getElementById("wishlistContainer");
-    let items = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    const items = JSON.parse(localStorage.getItem("wishlist") || "[]");
 
     if (!items.length) {
         container.innerHTML = `
@@ -66,27 +65,43 @@ function loadWishlist() {
 
     container.innerHTML = items.map(item => `
         <div class="col-md-3">
-            <div class="product-card animate-slide product-info" onclick="openProductDetails('${item.id}', '${item.type}')">
+            <div class="product-card animate-slide product-info" data-id="${item.id}" data-type="${item.type}">
                 <img src="${item.img}" class="product-fixed-img mb-3" />
 
-                <div class="p-3 text-center">
+                <div class="p-3 text-center card-body">
                     <h5 class="fw-bold">${item.name}</h5>
                     <p class="price">₹${item.price}</p>
 
-                    <button class="btn btn-outline-danger mt-2"
+                    <button class="btn btn-outline-danger mt-2 wishlist-btn"
                             data-id="${item.id}"
                             data-type="${item.type}"
                             data-name="${item.name}"
                             data-img="${item.img}"
                             data-price="${item.price}"
-                            data-uniqueid="${item.uniqueId}"
-                            onclick="event.stopPropagation(); removeFromWishlist('${item.uniqueId}')">
+                            data-uniqueid="${item.uniqueId}">
                         Remove
                     </button>
                 </div>
             </div>
         </div>
     `).join("");
+
+    // Open product-details.html when card clicked
+    container.querySelectorAll(".product-card").forEach(card => {
+        card.addEventListener("click", () => {
+            const id = card.dataset.id;
+            const type = card.dataset.type;
+            window.location.href = `product-details.html?id=${type}-${id}&category=${type}`;
+        });
+    });
+
+    // Remove from wishlist
+    container.querySelectorAll(".wishlist-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation(); // prevent opening product-details
+            removeFromWishlist(btn.dataset.uniqueid);
+        });
+    });
 }
 
 /* -------------------- REMOVE ITEM FROM WISHLIST -------------------- */
@@ -95,16 +110,8 @@ function removeFromWishlist(uniqueId) {
     items = items.filter(i => i.uniqueId !== uniqueId);
     localStorage.setItem("wishlist", JSON.stringify(items));
 
-    // Reload wishlist page
     loadWishlist();
-
-    // Trigger global sync for other pages
     window.dispatchEvent(new Event("storage"));
-}
-
-/* -------------------- OPEN PRODUCT DETAILS -------------------- */
-function openProductDetails(id, type) {
-    window.location.href = `product-details.html?id=${id}&type=${type}`;
 }
 
 /* -------------------- INITIAL LOAD -------------------- */
