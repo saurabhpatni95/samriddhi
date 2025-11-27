@@ -5,17 +5,17 @@ function loadProducts(category, containerId, limit = null) {
             let items = data[category];
             if (limit) items = items.slice(0, limit);
 
-            let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+            const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
 
-            let html = "";
-            items.forEach(item => {
+            const html = items.map(item => {
+                // 🔹 uniqueId = type + id
+                const uniqueId = `${item.type}-${item.id}`;
+                const isAdded = wishlist.some(w => w.uniqueId === uniqueId);
 
-                let isAdded = wishlist.some(w => w.id == item.id); // FIXED
-
-                html += `
-                <div class="col-md-3" data-aos="fade-up">
+                return `
+                <div class="col-md-3 col-sm-6" data-aos="fade-up">
                     <div class="product-card animate-slide"
-                         onclick="openProductDetails(${item.id}, '${category}')">
+                         onclick="openProductDetails('${uniqueId}', '${category}')">
 
                         <img src="${item.image}" class="product-fixed-img">
 
@@ -24,7 +24,9 @@ function loadProducts(category, containerId, limit = null) {
                             <p class="price">₹${item.price}</p>
 
                             <button class="btn btn-outline-danger wishlist-btn ${isAdded ? "btn-added" : ""}"
+                                    data-uniqueid="${uniqueId}"
                                     data-id="${item.id}"
+                                    data-type="${item.type}"
                                     data-name="${item.name}"
                                     data-img="${item.image}"
                                     data-price="${item.price}"
@@ -35,30 +37,15 @@ function loadProducts(category, containerId, limit = null) {
                     </div>
                 </div>
                 `;
-            });
+            }).join("");
 
             document.getElementById(containerId).innerHTML = html;
-        })
-        .then(() => updateWishlistButtons());
+
+            // Ensure buttons update according to wishlist
+            updateWishlistButtons();
+        });
 }
 
-function updateWishlistButtons() {
-    let items = JSON.parse(localStorage.getItem("wishlist") || "[]");
-
-    document.querySelectorAll(".wishlist-btn").forEach(btn => {
-        let id = btn.dataset.id;
-        let exists = items.some(i => i.id == id);
-
-        if (exists) {
-            btn.innerHTML = "✔ Added";
-            btn.classList.add("btn-added");
-        } else {
-            btn.innerHTML = "❤️ Wishlist";
-            btn.classList.remove("btn-added");
-        }
-    });
-}
-
-function openProductDetails(id, type) {
-    window.location.href = `product-details.html?id=${id}&type=${type}`;
+function openProductDetails(uniqueId, category) {
+    window.location.href = `product-details.html?id=${uniqueId}&category=${category}`;
 }

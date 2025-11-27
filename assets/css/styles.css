@@ -1,15 +1,132 @@
 /* -------------------- NAVBAR -------------------- */
-nav {
+.navbar {
+    position: fixed;       /* Fixed navbar */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;         /* Above content */
     backdrop-filter: blur(12px);
-    background: rgba(255,255,255,0.15) !important;
-    box-shadow: 0 4px 25px rgba(0,0,0,0.12);
-    animation: navDrop .8s ease forwards;
-    opacity: 0;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+    transition: background 0.3s ease, color 0.3s ease;
+    padding: 0.6rem 1rem;
 }
 
-@keyframes navDrop {
-    from { transform: translateY(-40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+/* Add top padding to body to prevent content overlap */
+body {
+    padding-top: 70px; /* Adjust based on navbar height */
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Nav links */
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    margin-right: 8px;
+    color: #222 !important;
+    transition: 0.3s ease;
+}
+
+/* Nav link underline animation */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #ff4081;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Search box */
+.search-box {
+    position: relative;
+    width: 180px;
+    transition: width 0.4s ease;
+}
+.search-box input {
+    width: 100%;
+    padding: 6px 12px;
+    border-radius: 25px;
+    border: 1px solid #bbb;
+    background: #fff;
+    transition: 0.3s ease;
+}
+.search-box:focus-within {
+    width: 260px;
+}
+
+/* Icons */
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    margin-left: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: #333;
+}
+.icon-btn:hover {
+    transform: scale(1.1);
+}
+
+/* -------------------- FOOTER -------------------- */
+.footer {
+    background: #111;
+    color: white;
+    position: fixed;      /* Fixed at bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 12px 0;
+    text-align: center;
+}
+
+/* Add top padding to body to prevent content overlap */
+body {
+    padding-bottom: 70px; /* Adjust based on navbar height */
+}
+
+/* -------------------- RESPONSIVE FIXES -------------------- */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        padding: 12px 0;
+    }
+    .navbar-nav {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .search-box {
+        width: 100% !important;
+        margin: 10px 0;
+    }
+    .icon-btn {
+        font-size: 1.6rem;
+        margin-left: 10px;
+    }
+    #wishlistCount {
+        margin-left: 3px;
+    }
+}
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+    .icon-btn {
+        font-size: 1.4rem;
+    }
 }
 
 /* -------------------- HERO SECTION -------------------- */
@@ -71,7 +188,7 @@ nav {
     position: relative;
     z-index: 5;
     padding: 0;
-    cursor: default; /* IMPORTANT: prevent blocking of View/Wishlist btn */
+    cursor: default;
 }
 
 /* Hover effect */
@@ -85,9 +202,9 @@ nav {
     width: 100%;
     height: 260px !important;
     object-fit: cover !important;
-    object-position: top !important; /* Start from top */
+    object-position: top !important;
     display: block;
-    pointer-events: none !important; /* IMAGE DOES NOT BLOCK CLICKS */
+    pointer-events: none !important;
 }
 
 .product-card:hover img {
@@ -122,20 +239,18 @@ nav {
     font-weight: bold;
 }
 
-/* -------------------- FIX BUTTON CLICKS -------------------- */
+/* -------------------- BUTTONS -------------------- */
 .product-card a.btn,
 .product-card button.btn {
     position: relative;
     z-index: 20 !important;
-    pointer-events: auto !important; /* ENSURE BUTTONS ARE CLICKABLE */
+    pointer-events: auto !important;
 }
 
-/* Ensure animations do not block pointer events */
 [data-aos] {
     pointer-events: auto !important;
 }
 
-/* -------------------- BUTTON EFFECTS -------------------- */
 .btn-animated {
     transition: 0.3s ease;
 }
@@ -147,7 +262,7 @@ nav {
 /* -------------------- SCROLL-TO-TOP -------------------- */
 #scrollTopBtn {
     position: fixed;
-    bottom: 30px;
+    bottom: 90px; /* above the footer */
     right: 30px;
     background: #e91e63;
     color: white;
@@ -158,18 +273,12 @@ nav {
     cursor: pointer;
     opacity: 0;
     transition: opacity .4s ease, transform .3s ease;
-    z-index: 999;
+    z-index: 9999;
 }
 
 #scrollTopBtn.show {
     opacity: 1;
     transform: translateY(-8px);
-}
-
-/* -------------------- FOOTER -------------------- */
-.footer {
-    background: #111;
-    color: white;
 }
 
 /* -------------------- DARK MODE -------------------- */
@@ -206,7 +315,7 @@ body.dark-mode .btn-outline-dark:hover {
     color: black !important;
 }
 
-/* WISHLIST CARD */
+/* -------------------- WISHLIST -------------------- */
 .wishlist-card {
     border-radius: 12px;
     overflow: hidden;
@@ -217,17 +326,15 @@ body.dark-mode .btn-outline-dark:hover {
     transform: translateY(-5px);
 }
 
-/* FIXED PRODUCT IMAGE HEIGHT */
 .wishlist-img,
 .product-fixed-img {
     width: 100%;
     height: 260px !important;
-    object-fit: cover;       /* ensures image starts from TOP */
-    object-position: top;    /* starts from top */
+    object-fit: cover;
+    object-position: top;
     border-bottom: 1px solid #ddd;
 }
 
-/* PRICE STYLE */
 .price {
     font-size: 1.2rem;
     color: #d9534f;
