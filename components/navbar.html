@@ -39,7 +39,7 @@
 <div class="mobile-tab-bar d-lg-none d-flex justify-content-around align-items-center">
   <button onclick="window.location.href='index.html'" class="mobile-tab">🏠</button>
   <button onclick="window.location.href='sarees.html'" class="mobile-tab">🥻</button>
-  <button onclick="window.location.href='suits.html'" class="mobile-tab">👚</button>
+  <button onclick="window.location.href='suits.html'" class="mobile-tab">👗</button>
   <button onclick="window.location.href='wishlist.html'" class="mobile-tab">❤️</button>
   <button id="darkToggle" class="mobile-tab">🌙</button>
 </div>
@@ -69,7 +69,22 @@
 
   .rotated { transform: rotate(360deg); transition: transform 0.5s ease; }
 
-  .dark-mode { background: #121212; color: #fff; }
+  /* Dark mode main body */
+  .dark-mode {
+      background: #121212 !important;
+      color: #fff !important;
+  }
+
+  /* 🔥 Dark mode for bottom tab bar */
+  .dark-mode .mobile-tab-bar {
+      background: #1e1e1e !important;
+      border-top: 1px solid rgba(255,255,255,0.2) !important;
+  }
+
+  /* 🔥 Dark mode icons */
+  .dark-mode .mobile-tab {
+      color: #fff !important;
+  }
 </style>
 
 <script>
